@@ -1,0 +1,31 @@
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {background-color: #CCCCFF;}
+    h1   {color: blue;}
+    p    {color: black;}
+  </style>
+</head>
+  <body>
+    <div class="container">
+      <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+    <div class="mkt-s1">
+      <div class="mkt-s1-body container ">
+        <div class="row">
+            <h1 class="col-md-8">{{ project.name  }}</h1>
+        </div>
+          <div class="row">
+              <p class="col-md-8">{{ project.details }}</p>
+          </div>
+          <div class="row">
+            <a href="{{project.image}}=w2400?source=screenshot.guru">
+              <img src="{{project.image}}=w600-h315-p-k" />
+            </a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

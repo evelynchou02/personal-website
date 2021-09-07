@@ -1,0 +1,118 @@
+{% load static %}<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body {background-color: #CCCCFF;
+            text-align: center;
+            margin: 25px 150px 75px 150px;}
+      h1   {color: blue;}
+      p    {color: black;}
+    </style>
+    </head>
+  <body>
+    <div class="mkt-s1">
+      <div class="mkt-s1-body container ">
+        <div class="row">
+            <h1 class="col-md-8">Evelyn Chou</h1>
+        </div>
+        <style>
+        .dropbtn {
+          background-color: #6495ED;
+          color: white;
+          padding: 12px;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+          }
+        .dropdown {
+          position: relative;
+          display: inline-block;
+          }
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+          }
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          }
+        .dropdown-content a:hover {background-color: #f1f1f1}
+        .dropdown:hover .dropdown-content {
+          display: block;
+          }
+        .dropdown:hover .dropbtn {
+          background-color: #1434A4;
+          }
+      </style>
+
+      <div class="dropdown">
+        <button class="dropbtn">Navigation</button>
+        <div class="dropdown-content">
+        <a href="{% url 'home' %}">Home</a>
+        {% for board in boards %}
+              <a href="{% url 'project' board.pk %}">Project: {{ board.name }} </a>
+        {% endfor %}
+      </div>
+      </div>
+          <div class="row">
+              <p class="col-md-8">Hi, welcome to my website! I'm Evelyn and I'm a sophomore at Williams College majoring in computer science and economics.
+              Right now I'm learning Data Structures and Advanced Programming in Java as well as Discrete Math.
+              </p>
+          </div>
+      </div>
+    </div>
+
+      
+
+    <div class="container">
+      <div class="row">
+          <h1 class="col-md-8">Projects</h1>
+      </div>
+      <p>
+        Here are some of my projects. For more info. on a specific project, just click on the project's name in the table or in "Navigation".
+      </p>
+    <table class="table" >
+      <style>
+      table{margin: auto;
+            width: 60%;
+            padding: 10px;}
+      th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #CCCCFF;
+      background-color: #6495ED
+      }
+      a {
+        color: black
+      }
+      th {
+      background-color: #1434A4;
+      color: white;
+      }
+      </style>
+      <thead class="thead-inverse">
+
+          <th >Project</th>
+          <th>Description</th>
+
+      </thead>
+      <tbody>
+          {% for board in boards %}
+            <tr>
+              <td>
+                <a href="{% url 'project' board.pk %}">{{ board.name }} </a>
+              </td>
+              <td><small class="text-muted d-block">{{ board.description }}</small></td>
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
