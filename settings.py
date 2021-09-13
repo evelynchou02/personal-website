@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','0ro)wrn64mthqqm9%y224%v+6p!@^*=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['ec17.pythonanywhere.com']
+ALLOWED_HOSTS = ['ec17.pythonanywhere.com',]
 
 
 # Application definition
